@@ -5,8 +5,6 @@
 - [x] Mac OSX
 - [x] Linux
 
-## Features
-
 ## Credits
 
 Daniel Scalzi | https://github.com/WesterosCraftCode
