@@ -1,6 +1,9 @@
 # WA-Launcher-Testing
 
 ## Compatibility
+[x] Windows x64
+[x] Mac OSX
+[x] Linux
 
 ## Features
 
