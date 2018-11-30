@@ -5,13 +5,13 @@
 - [x] Mac OSX
 - [x] Linux
 
-## Original Author
+## Credits
 
+**Original Author**
 Daniel Scalzi | https://github.com/WesterosCraftCode
 
 WesterosCraft | https://www.westeroscraft.com
 
-## Legacy Modifications
-
+**Legacy Modifications**
 WorldAutomation.Net Team | https://www.worldautomation.net
 
