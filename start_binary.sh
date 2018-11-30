@@ -1,7 +1,8 @@
 #!/bin/bash
 cd "$(dirname "$0")"
 cp -rf ../WA-Mod-Pack/distribution.json app/assets/.
-node_modules/.bin/build --win --linux --x64
+#node_modules/.bin/build --win --linux --x64
+node_modules/.bin/build --win --x64
 #zip -r dist/WA-Installer-OSX.zip dist/mac/*
 cp app/assets/distribution.json dist/.
 chmod -R 777 dist
