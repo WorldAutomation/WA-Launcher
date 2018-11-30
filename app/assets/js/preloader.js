@@ -1,11 +1,11 @@
-const {ipcRenderer} = require('electron')
-const os            = require('os')
-const path          = require('path')
-const rimraf        = require('rimraf')
+const {ipcRenderer}=require('electron')
+const os=require('os')
+const path=require('path')
+const rimraf=require('rimraf')
 
-const ConfigManager = require('./configmanager')
-const DistroManager = require('./distromanager')
-const logger        = require('./loggerutil')('%c[Preloader]', 'color: #a02d2a; font-weight: bold')
+const ConfigManager=require('./configmanager')
+const DistroManager=require('./distromanager')
+const logger=require('./loggerutil')('%c[Preloader]', 'color: #a02d2a; font-weight: bold')
 
 logger.log('Loading..')
 

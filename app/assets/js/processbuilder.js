@@ -197,6 +197,7 @@ class ProcessBuilder {
 				//START WorldAutomation.Net
 				var targetPath = path.join(mod.getPath().toString().replace('modstore','mods'))
 				var sourcePath = path.join(mod.getPath())
+				//Required Mods
 				fse.copySync(sourcePath, targetPath);
 				requiredFiles.push(mod.getPath())
 				//END WorldAutomation.Net
@@ -212,6 +213,8 @@ class ProcessBuilder {
 				//END WorldAutomation.Net
             }
         }
+		//Now Optional Mods
+		fse.copySync(path.join(this.gameDir,'mods-optional'), path.join(this.gameDir,'mods'))
         modList.modRef = ids
 		modList.requiredFiles = requiredFiles
         
