@@ -2099,8 +2099,6 @@ input:checked + .toggleSwitchSlider:before {
 
 /* Update action button styles. */
 #settingsUpdateActionButton {
-    display: flex;
-    flex-direction: column;
     padding-left: 10px;
     background: none;
     border: none;
@@ -2363,9 +2361,22 @@ input:checked + .toggleSwitchSlider:before {
 }
 #newsArticleContentScrollable img,
 #newsArticleContentScrollable iframe {
-    max-width: 95%;
+    max-width: 100%;
+	padding-top:10px;
+	padding-bottom:10px;
     display: block;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
+}
+#newsArticleContentScrollable blockquote {
+	background-color: gray;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 0px;	
+	width:100%;
+}
+#newsArticleContentScrollable p {
+    margin-bottom: 10px;	
+	width:100%;
 }
 #newsArticleContentScrollable a {
     color: rgba(202, 202, 202, 0.75);
@@ -2416,7 +2427,7 @@ input:checked + .toggleSwitchSlider:before {
 
 
 #newsArticleContentWrapper {
-    width: 80%;
+    width: 95%;
 }
 
 .newsArticleSpacerTop {
@@ -2831,13 +2842,13 @@ input:checked + .toggleSwitchSlider:before {
 }
 
 /* Instagram icon colors. */
-#instagramSVG:hover,
-#instagramURL:focus #instagramSVG {
-    fill: url('#instaFill')
+#facebookSVG:hover,
+#facebookURL:focus #facebookSVG {
+    fill: url('#facebookFill')
     /*fill: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); */
 }
-#instagramSVG:active {
-    fill: url('#instaFill')
+#facebookSVG:active {
+    fill: url('#facebookFill')
 }
 
 /* Youtube icon colors. */
