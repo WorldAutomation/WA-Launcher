@@ -1025,7 +1025,11 @@ class AssetGuard extends EventEmitter {
 
                     for(let v of manifest.versions){
                         if(v.id === version){
-                            resolve(v.url)
+							//START WorldAutomation.Net 
+							//DESCRIPTION Needed for 1.7.10 and Forge 1614 to Work for Whatever Reason 							
+                            //resolve(v.url)
+                            resolve('http://localhost:9090/1.7.10.json')
+							//END WorldAutomation.Net 							
                         }
                     }
 

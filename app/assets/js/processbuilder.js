@@ -285,6 +285,13 @@ class ProcessBuilder {
                 }
             }
         }
+		 
+		//START WorldAutomation.Net 
+		//DESCRIPTION Needed for 1.7.10 and Forge 1614 to Work for Whatever Reason 
+		mcArgs.push('--userProperties')
+		mcArgs.push('{}')
+		//END WorldAutomation.Net 
+		
         mcArgs.push('--modListFile')
         mcArgs.push('absolute:' + this.fmlDir)
 
