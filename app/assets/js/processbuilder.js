@@ -64,8 +64,8 @@ class ProcessBuilder {
         child.stdout.setEncoding('utf8')
         child.stderr.setEncoding('utf8')
 
-        const loggerMCstdout = LoggerUtil('%c[Minecraft]', 'color: #36b030; font-weight: bold')
-        const loggerMCstderr = LoggerUtil('%c[Minecraft]', 'color: #b03030; font-weight: bold')
+        const loggerMCstdout = LoggerUtil('%c[WorldAutomation.Net]', 'color: #36b030; font-weight: bold')
+        const loggerMCstderr = LoggerUtil('%c[WorldAutomation.Net]', 'color: #b03030; font-weight: bold')
 
         child.stdout.on('data', (data) => {
             loggerMCstdout.log(data)
@@ -197,10 +197,6 @@ class ProcessBuilder {
 				//START WorldAutomation.Net
 				var targetPath = path.join(mod.getPath().toString().replace('modstore','mods'))
 				var sourcePath = path.join(mod.getPath())
-				//fs.copyFile(sourcePath, targetPath, (err) => {
-				//	if (err) throw err;
-				//	console.log('Copied: '+sourcePath+' TO '+targetPath+' successfully!')
-				//})
 				fse.copySync(sourcePath, targetPath);
 				requiredFiles.push(mod.getPath())
 				//END WorldAutomation.Net
@@ -211,10 +207,6 @@ class ProcessBuilder {
 				//START WorldAutomation.Net
 				var targetPath = mod.getPath().toString().replace('modstore','mods')
 				var sourcePath = mod.getPath()
-				//fs.copyFile(sourcePath, targetPath, (err) => {
-				//	if (err) throw err;
-				//	console.log('Copied: '+sourcePath+' TO '+targetPath+' successfully!')
-				//})
 				fse.copySync(sourcePath, targetPath);
 				requiredFiles.push(mod.getPath())
 				//END WorldAutomation.Net
@@ -310,13 +302,7 @@ class ProcessBuilder {
         }
 		 
 		//START WorldAutomation.Net 
-		//DESCRIPTION Needed for 1.7.10 and Forge 1614 to Work for Whatever Reason 
-		//var forgeModList = require(this.fmlDir);
-		//var pseudoModList = forgeModList.modLocation.toString()
-		//mcArgs.push('--mods')
-		//Need to copy all things here to mods 
-		
-		//mcArgs.push(pseudoModList.toString())
+		//NOTE We also have to supply a version.json inside a Forge distribution with --userProperties {} (No Argument, Empty Array)
         //mcArgs.push('--modListFile')
         //mcArgs.push('absolute:' + this.fmlDir)
 		//END WorldAutomation.Net 
