@@ -2,7 +2,9 @@
 
 ## Credits
 
-Daniel Scalzi, WesterosCraft | https://github.com/WesterosCraftCode
+Daniel Scalzi | https://github.com/WesterosCraftCode
+
+WesterosCraft | https://www.westeroscraft.com
 
 ## Resources
 
