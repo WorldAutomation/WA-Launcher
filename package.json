@@ -1,65 +1,78 @@
 {
-  "name": "westeroscraftlauncher",
-  "version": "1.2.0",
-  "productName": "WesterosCraft Launcher",
-  "description": "Modded Minecraft Launcher",
-  "author": "Daniel Scalzi (https://github.com/dscalzi/)",
-  "license": "UNLICENSED",
-  "homepage": "https://github.com/WesterosCraftCode/ElectronLauncher",
-  "bugs": {
-    "url": "https://github.com/WesterosCraftCode/ElectronLauncher/issues"
-  },
-  "private": true,
+  "name": "wa-launcher",
+  "version": "4.0.2",
+  "description": "Custom modded launcher for WorldAutomation.Net",
+  "productName": "WorldAutomation.Net",
   "main": "index.js",
   "scripts": {
+    "mods": "mods.js",
     "start": "electron index.js",
-    "cilinux": "electron-builder --linux --win",
-    "cidarwin": "electron-builder --mac",
-    "dist": "cross-env ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true electron-builder",
+    "travislinux": "electron-builder --linux --win",
+    "travisdarwin": "electron-builder --mac",
+    "dist": "SET ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true & electron-builder",
     "dist:win": "npm run dist -- --win --x64",
     "dist:mac": "npm run dist -- --mac",
     "dist:linux": "npm run dist -- --linux --x64",
-    "lint": "eslint --config .eslintrc.json --ignore-pattern app/assets/js/scripts/*.js . && eslint --config .eslintrc.scripts.json app/assets/js/scripts"
+    "dist:deb": "npm run dist -- --linux deb --x64",
+    "dist:all": "npm run dist -- -wl --x64",
+    "lint": "eslint --config .eslintrc.json --ignore-pattern app/assets/js/scripts/*.js . && eslint --config .eslintrc.scripts.json app/assets/js/scripts",
+    "release": "build"
   },
   "engines": {
     "node": "10.x.x"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/worldautomation/wa-launcher-pack.git"
+  },
+  "authors": ["Daniel Scalzi (https://github.com/dscalzi/)","WorldAutomation.Net (https://www.worldautomation.net)"],
+  "license": "UNLICENSED",
+  "private": false,
+  "homepage": "http://www.worldautomation.net",
   "dependencies": {
-    "adm-zip": "^0.4.13",
+    "adm-zip": "^0.4.11",
     "async": "^2.6.1",
-    "discord-rpc": "discordjs/RPC",
+    "child_process": "^1.0.2",
+    "discord-rpc": "^3.0.1",
     "ejs": "^2.6.1",
     "ejs-electron": "^2.0.3",
     "electron-updater": "^4.0.4",
+    "fs": "0.0.1-security",
     "github-syntax-dark": "^0.5.0",
     "jquery": "^3.3.1",
+    "jsonfile": "^5.0.0",
     "mkdirp": "^0.5.1",
+    "node-dir": "^0.1.17",
+    "path": "^0.12.7",
+    "register-scheme": "0.0.2",
     "request": "^2.88.0",
     "rimraf": "^2.6.2",
     "semver": "^5.6.0",
     "tar-fs": "^1.16.3",
+    "uuid": "^3.3.2",
     "winreg": "^1.2.4"
   },
   "devDependencies": {
-    "cross-env": "^5.2.0",
-    "electron": "^3.0.10",
-    "electron-builder": "^20.36.2",
+    "electron": "^3.0.8",
+    "electron-builder": "^20.33.2",
     "eslint": "^5.9.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/WesterosCraftCode/ElectronLauncher.git"
-  },
   "build": {
-    "appId": "westeroscraftlauncher",
-    "productName": "WesterosCraft Launcher",
-    "artifactName": "${productName}.${ext}",
-    "copyright": "Copyright © 2018 WesterosCraft",
+    "appId": "wa-installer",
+    "productName": "WorldAutomation.Net",
+    "artifactName": "WA-Installer.${ext}",
+    "copyright": "Copyright Â©2018 WorldAutomation.Net",
     "directories": {
       "buildResources": "build",
       "output": "dist"
     },
     "win": {
+      "publish": [
+        {
+          "provider": "generic",
+          "url": "https://cdn.worldautomation.net/dist"
+        }
+      ],
       "target": [
         {
           "target": "nsis",
@@ -76,16 +89,29 @@
       "uninstallerIcon": "build/icon.ico"
     },
     "mac": {
+      "publish": [
+        {
+          "provider": "generic",
+          "url": "https://cdn.worldautomation.net/dist"
+        }
+      ],
       "target": "dmg",
       "category": "public.app-category.games",
-      "icon": "build/icon.icns"
+      "icon": "build/icon.icns",
+      "type": "distribution"
     },
     "linux": {
+      "publish": [
+        {
+          "provider": "generic",
+          "url": "https://cdn.worldautomation.net/dist"
+        }
+      ],
       "target": "AppImage",
-      "maintainer": "Daniel Scalzi",
-      "vendor": "WesterosCraft",
-      "synopsis": "Custom Launcher for WesterosCraft",
-      "description": "Custom launcher which allows users to join WesterosCraft. All mods, configurations, and updates are handled automatically.",
+      "maintainer": "WorldAutomation.Net",
+      "vendor": "WorldAutomation.Net",
+      "synopsis": "Custom modded launcher for WorldAutomation.Net",
+      "description": "Custom launcher which allows users to join WorldAutomation.Net. All mods, configurations, and updates are handled automatically.",
       "category": "Game"
     },
     "deb": {
