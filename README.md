@@ -2,17 +2,25 @@
 
 ## Credits
 
-###
-Original Author: Daniel Scalzi, WesterosCraft
+### Original Author
+Daniel Scalzi, WesterosCraft
+
 Discord: https://discord.gg/hqdjs3m
+
 Site: https://westeroscraft.com/
+
 GitHub: https://github.com/WesterosCraftCode
 
-###
-Contributing Authors: WorldAutomation.Net
+
+###Contributing Authors
+WorldAutomation.Net
+
 Discord:
+
 Site:
+
 GitHub:
+
 
 ## Resources
 
