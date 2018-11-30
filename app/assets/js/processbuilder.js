@@ -2,6 +2,7 @@ const AdmZip                = require('adm-zip')
 const child_process         = require('child_process')
 const crypto                = require('crypto')
 const fs                    = require('fs')
+const fse                    = require('fs-extra')
 const mkpath                = require('mkdirp')
 const os                    = require('os')
 const path                  = require('path')
@@ -189,22 +190,44 @@ class ProcessBuilder {
         }
 
         const ids = []
+		const requiredFiles = []
         if(type === 'forge'){
             for(let mod of mods){
                 ids.push(mod.getExtensionlessID())
+				//START WorldAutomation.Net
+				var targetPath = path.join(mod.getPath().toString().replace('modstore','mods'))
+				var sourcePath = path.join(mod.getPath())
+				//fs.copyFile(sourcePath, targetPath, (err) => {
+				//	if (err) throw err;
+				//	console.log('Copied: '+sourcePath+' TO '+targetPath+' successfully!')
+				//})
+				fse.copySync(sourcePath, targetPath);
+				requiredFiles.push(mod.getPath())
+				//END WorldAutomation.Net
             }
         } else {
             for(let mod of mods){
                 ids.push(mod.getExtensionlessID() + '@' + mod.getExtension())
+				//START WorldAutomation.Net
+				var targetPath = mod.getPath().toString().replace('modstore','mods')
+				var sourcePath = mod.getPath()
+				//fs.copyFile(sourcePath, targetPath, (err) => {
+				//	if (err) throw err;
+				//	console.log('Copied: '+sourcePath+' TO '+targetPath+' successfully!')
+				//})
+				fse.copySync(sourcePath, targetPath);
+				requiredFiles.push(mod.getPath())
+				//END WorldAutomation.Net
             }
         }
         modList.modRef = ids
+		modList.requiredFiles = requiredFiles
         
         if(save){
             const json = JSON.stringify(modList, null, 4)
             fs.writeFileSync(type === 'forge' ? this.fmlDir : this.llDir, json, 'UTF-8')
         }
-
+		console.log('modlist:'+modList)
         return modList
     }
 
@@ -288,12 +311,15 @@ class ProcessBuilder {
 		 
 		//START WorldAutomation.Net 
 		//DESCRIPTION Needed for 1.7.10 and Forge 1614 to Work for Whatever Reason 
-		mcArgs.push('--userProperties')
-		mcArgs.push('{}')
-		//END WorldAutomation.Net 
+		//var forgeModList = require(this.fmlDir);
+		//var pseudoModList = forgeModList.modLocation.toString()
+		//mcArgs.push('--mods')
+		//Need to copy all things here to mods 
 		
-        mcArgs.push('--modListFile')
-        mcArgs.push('absolute:' + this.fmlDir)
+		//mcArgs.push(pseudoModList.toString())
+        //mcArgs.push('--modListFile')
+        //mcArgs.push('absolute:' + this.fmlDir)
+		//END WorldAutomation.Net 
 
         if(this.usingLiteLoader){
             mcArgs.push('--modRepo')

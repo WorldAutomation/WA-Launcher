@@ -184,7 +184,7 @@ class Module {
                 break
             case exports.Types.ForgeMod:
             case exports.Types.LiteMod:
-                this.artifact.path = path.join(ConfigManager.getCommonDirectory(), 'modstore', pth)
+                this.artifact.path = path.join(ConfigManager.getInstanceDirectory(), 'current', `${this.getPath()}`)
                 break
             case exports.Types.File:
             default:
@@ -294,7 +294,13 @@ class Module {
     getType(){
         return this.type
     }
-
+	
+    /**
+     * @returns {string} The type of the module.
+     */
+    getPath(){
+        return this.artifact.path
+    }
 }
 exports.Module
 
