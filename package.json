@@ -23,9 +23,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/worldautomation/wa-launcher-pack.git"
+    "url": "git+https://github.com/worldautomation/wa-launcher.git"
   },
-  "authors": ["Daniel Scalzi (https://github.com/dscalzi/)","WorldAutomation.Net (https://www.worldautomation.net)"],
+  "authors": [
+    "Daniel Scalzi (https://github.com/dscalzi/)",
+    "WorldAutomation.Net (https://www.worldautomation.net)"
+  ],
   "license": "UNLICENSED",
   "private": false,
   "homepage": "http://www.worldautomation.net",
@@ -54,7 +57,7 @@
   },
   "devDependencies": {
     "electron": "^3.0.8",
-    "electron-builder": "^20.33.2",
+    "electron-builder": "^20.38.2",
     "eslint": "^5.9.0"
   },
   "build": {
