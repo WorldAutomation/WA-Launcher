@@ -12,7 +12,7 @@ Site: https://westeroscraft.com/
 GitHub: https://github.com/WesterosCraftCode
 
 
-###Contributing Authors
+### Contributing Authors
 
 WorldAutomation.Net
 
