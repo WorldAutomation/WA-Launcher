@@ -9,6 +9,7 @@ rm -rf dist/win-unpacked*
 rm -rf dist/linux-unpacked*
 rm dist/.icon-set*
 rm dist/mac*
+cp -rf app/assets/distribution.json dist/.
 cp -rf dist ../WA-Mod-Pack/.
 rm -rf dist
 git add --all
