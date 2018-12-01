@@ -130,10 +130,10 @@ exports.status = function(){
                     resolve(statuses)
                 }
             })
-			request.get('https://www.worldautomation.net/README.md',
+			request.get('https://www.worldautomation.net/wp-content/themes/worldautomation/style.css',
 				{
 					json: false,
-					timeout: 2500
+					timeout: 5000
 				},
 				function(error, response, body){
 					if(error || response.statusCode !== 200){
