@@ -554,18 +554,18 @@ function saveModConfiguration(){
 function _saveModConfiguration(modConf){
     for(m of Object.entries(modConf)){
         const tSwitch=settingsModsContainer.querySelectorAll(`[formod='${m[0]}']`)
-        if(!tSwitch[0].hasAttribute('dropin')){
-            if(typeof m[1] === 'boolean'){
-                modConf[m[0]]=tSwitch[0].checked
-            } else {
-                if(m[1] != null){
-                    if(tSwitch.length > 0){
-                        modConf[m[0]].value=tSwitch[0].checked
-                    }
-                    modConf[m[0]].mods=_saveModConfiguration(modConf[m[0]].mods)
-                }
-            }
-        }
+        //if(!tSwitch[0].hasAttribute('dropin')){
+            //if(typeof m[1] === 'boolean'){
+                //modConf[m[0]]=tSwitch[0].checked
+            //} else {
+                //if(m[1] != null){
+                    //if(tSwitch.length > 0){
+                        //modConf[m[0]].value=tSwitch[0].checked
+                    //}
+                    //modConf[m[0]].mods=_saveModConfiguration(modConf[m[0]].mods)
+                //}
+            //}
+        //}
     }
     return modConf
 }
@@ -581,8 +581,8 @@ let CACHE_DROPIN_MODS
  */
 function resolveDropinModsForUI(){
     const serv=DistroManager.getDistribution().getServer(ConfigManager.getSelectedServer())
-    CACHE_SETTINGS_MODS_DIR=path.join(ConfigManager.getInstanceDirectory(), serv.getID(), 'mods')
-    CACHE_SETTINGS_MODS_REQUIRED_DIR=path.join(ConfigManager.getInstanceDirectory(), serv.getID(), 'mods-required')
+    CACHE_SETTINGS_MODS_DIR=path.join(ConfigManager.getInstanceDirectory(), serv.getID(), 'mods-optional')
+    CACHE_SETTINGS_MODS_REQUIRED_DIR=path.join(ConfigManager.getInstanceDirectory(), serv.getID(), 'modstore')
     CACHE_DROPIN_MODS=DropinModUtil.scanForDropinMods(CACHE_SETTINGS_MODS_DIR, serv.getMinecraftVersion())
 	CACHE_REQUIRED_MODS=DropinModUtil.scanForRequiredMods(CACHE_SETTINGS_MODS_REQUIRED_DIR, serv.getMinecraftVersion())
 	
@@ -629,7 +629,7 @@ function resolveDropinModsForUI(){
                 </div>`
     }
 
-    //document.getElementById('settingsOptModsContent').innerHTML=requiredMods	
+    document.getElementById('settingsReqModsContent').innerHTML=requiredMods	
 }
 
 /**

@@ -39,6 +39,7 @@ class ProcessBuilder {
     build(){
         mkpath.sync(this.gameDir)
         mkpath.sync(path.join(this.gameDir,'mods-optional'))
+		fse.remove(path.join(this.gameDir,'mods'))
         const tempNativePath = path.join(os.tmpdir(), ConfigManager.getTempNativeFolder(), crypto.pseudoRandomBytes(16).toString('hex'))
         process.throwDeprecation = true
         this.setupLiteLoader()
