@@ -63,7 +63,7 @@
   },
   "build": {
     "appId": "wa-installer",
-    "productName": "WorldAutomation.Net",
+    "productName": "World Automation",
     "artifactName": "WA-Installer.${ext}",
     "copyright": "Copyright Â©2018 WorldAutomation.Net",
     "directories": {
