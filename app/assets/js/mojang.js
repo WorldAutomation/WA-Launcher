@@ -17,9 +17,21 @@ const minecraftAgent = {
 const authpath = 'https://authserver.mojang.com'
 const statuses = [
     {
+        service: 'worldautomation.net',
+        status: 'grey',
+        name: 'WorldAutomation.Net Website',
+        essential: true
+    },
+	{
+        service: 'cdn.worldautomation.net',
+        status: 'grey',
+        name: 'WorldAutomation.Net CDN',
+        essential: true
+    },
+	{
         service: 'sessionserver.mojang.com',
         status: 'grey',
-        name: 'Multiplayer Session Service',
+        name: 'Session Service',
         essential: true
     },
     {
@@ -43,13 +55,13 @@ const statuses = [
     {
         service: 'minecraft.net',
         status: 'grey',
-        name: 'Minecraft.net',
+        name: 'Minecraft.Net',
         essential: false
     },
     {
         service: 'account.mojang.com',
         status: 'grey',
-        name: 'Mojang Accounts Website',
+        name: 'Mojang Authentication',
         essential: false
     }
 ]
@@ -86,6 +98,7 @@ exports.statusToHex = function(status){
  * 
  * @see http://wiki.vg/Mojang_API#API_Status
  */
+
 exports.status = function(){
     return new Promise((resolve, reject) => {
         request.get('https://status.mojang.com/check',
@@ -117,6 +130,32 @@ exports.status = function(){
                     resolve(statuses)
                 }
             })
+			request.get('https://www.worldautomation.net/README.md',
+				{
+					json: false,
+					timeout: 2500
+				},
+				function(error, response, body){
+					if(error || response.statusCode !== 200){
+						logger.warn('Unable to retrieve status of WorldAutomation.Net website: '+error)
+						statuses[0].status = 'grey'
+					} else {
+						statuses[0].status = 'green'
+					}
+				})		
+			request.get('https://cdn.worldautomation.net/distribution.json',
+				{
+					json: false,
+					timeout: 2500
+				},
+				function(error, response, body){
+					if(error || response.statusCode !== 200){
+						logger.warn('Unable to retrieve status of WorldAutomation.Net CDN: '+error)
+						statuses[1].status = 'grey'
+					} else {
+						statuses[1].status = 'green'
+					}
+				})					
     })
 }
 

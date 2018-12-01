@@ -2931,7 +2931,7 @@ input:checked + .toggleSwitchSlider:before {
     position: absolute;
     visibility: hidden;
     opacity: 0;
-    width: 145px;
+    width: 190px;
     min-height: 150px;
     background-color: rgba(0, 0, 0, 0.75);
     color: #fff;
@@ -2992,7 +2992,13 @@ input:checked + .toggleSwitchSlider:before {
     text-align: center;
     letter-spacing: 1px;
 }
-
+/* Essential service title text. */
+#mojangStatusETitle {
+    font-size: 10px;
+    padding: 0px 3px;
+    text-align: center;
+    letter-spacing: 1px;
+}
 /* Wrapper container for mojang service information. */
 .mojangStatusContainer {
     display: flex;
