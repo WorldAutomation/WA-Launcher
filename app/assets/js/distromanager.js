@@ -531,7 +531,7 @@ exports.pullRemote = function(){
         return exports.pullLocal()
     }
     return new Promise((resolve, reject) => {
-        const distroURL = 'http://cdn.worldautomation.net/distribution.json'
+        const distroURL = 'https://cdn.worldautomation.net/distribution.json'
         const opts = {
             url: distroURL,
             timeout: 2500
