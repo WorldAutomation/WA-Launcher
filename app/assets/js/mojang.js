@@ -133,7 +133,7 @@ exports.status = function(){
 			request.get('https://www.worldautomation.net/wp-content/themes/worldautomation/style.css',
 				{
 					json: false,
-					timeout: 5000
+					timeout: 2500
 				},
 				function(error, response, body){
 					if(error || response.statusCode !== 200){
