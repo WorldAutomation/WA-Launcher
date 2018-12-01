@@ -9,7 +9,7 @@ const logger = require('./loggerutil')('%c[ConfigManager]', 'color: #a02d2a; fon
 const sysRoot = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const dataPath = path.join(sysRoot, '.worldautomation')
 fse.remove(path.join(sysRoot, '.worldautomation', 'instances', 'current', 'mods'))
-
+fse.mkdirp(path.join(sysRoot, '.worldautomation', 'instances', 'current', 'mods-optional'))
 const firstLaunch = !fs.existsSync(dataPath)
 
 exports.getAbsoluteMinRAM = function(){
