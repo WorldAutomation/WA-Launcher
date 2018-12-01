@@ -50,10 +50,10 @@ const DEFAULT_CONFIG = {
             ],
         },
         game: {
-            resWidth: 1280,
-            resHeight: 720,
+            resWidth: 800,
+            resHeight: 453,
             fullscreen: false,
-            autoConnect: true,
+            autoConnect: false,
             launchDetached: true
         },
         launcher: {

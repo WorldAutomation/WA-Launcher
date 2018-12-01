@@ -305,11 +305,11 @@ class ProcessBuilder {
             }
         }
 		 
-		//START WorldAutomation.Net 
+		//START WorldAutomation.Net
 		//NOTE We also have to supply a version.json inside a Forge distribution with --userProperties {} (No Argument, Empty Array)
-        //mcArgs.push('--modListFile')
-        //mcArgs.push('absolute:' + this.fmlDir)
-		//END WorldAutomation.Net 
+	        //mcArgs.push('--modListFile')
+	        //mcArgs.push('absolute:' + this.fmlDir)
+		//END WorldAutomation.Net
 
         if(this.usingLiteLoader){
             mcArgs.push('--modRepo')
