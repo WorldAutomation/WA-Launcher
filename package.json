@@ -1,6 +1,6 @@
 {
   "name": "wa-launcher",
-  "version": "4.0.6",
+  "version": "4.0.7",
   "description": "Custom modded launcher for WorldAutomation.Net",
   "productName": "WorldAutomation.Net",
   "main": "index.js",

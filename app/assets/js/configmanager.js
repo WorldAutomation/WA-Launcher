@@ -52,8 +52,8 @@ const DEFAULT_CONFIG = {
             ],
         },
         game: {
-            resWidth: 800,
-            resHeight: 653,
+            resWidth: 856,
+            resHeight: 482,
             fullscreen: false,
             autoConnect: false,
             launchDetached: true
