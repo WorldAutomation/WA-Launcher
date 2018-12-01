@@ -39,7 +39,6 @@ class ProcessBuilder {
     build(){
         mkpath.sync(this.gameDir)
         mkpath.sync(path.join(this.gameDir,'mods-optional'))
-		fse.remove(path.join(this.gameDir,'mods'))
         const tempNativePath = path.join(os.tmpdir(), ConfigManager.getTempNativeFolder(), crypto.pseudoRandomBytes(16).toString('hex'))
         process.throwDeprecation = true
         this.setupLiteLoader()
@@ -149,7 +148,6 @@ class ProcessBuilder {
     resolveModConfiguration(modCfg, mdls){
         let fMods = []
         let lMods = []
-
         for(let mdl of mdls){
             const type = mdl.getType()
             if(type === DistroManager.Types.ForgeMod || type === DistroManager.Types.LiteMod || type === DistroManager.Types.LiteLoader){

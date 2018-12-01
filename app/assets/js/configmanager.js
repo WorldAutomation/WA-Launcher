@@ -1,4 +1,5 @@
 const fs     = require('fs')
+const fse     = require('fs-extra')
 const mkpath = require('mkdirp')
 const os     = require('os')
 const path   = require('path')
@@ -7,6 +8,7 @@ const logger = require('./loggerutil')('%c[ConfigManager]', 'color: #a02d2a; fon
 
 const sysRoot = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 const dataPath = path.join(sysRoot, '.worldautomation')
+fse.remove(path.join(sysRoot, '.worldautomation', 'instances', 'current', 'mods'))
 
 const firstLaunch = !fs.existsSync(dataPath)
 

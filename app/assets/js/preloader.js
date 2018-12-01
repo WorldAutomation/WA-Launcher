@@ -7,7 +7,7 @@ const ConfigManager=require('./configmanager')
 const DistroManager=require('./distromanager')
 const logger=require('./loggerutil')('%c[Preloader]', 'color: #a02d2a; font-weight: bold')
 
-logger.log('Loading..')
+logger.log('Loading...')
 
 // Load ConfigManager
 ConfigManager.load()
@@ -17,7 +17,7 @@ function onDistroLoad(data){
         
         // Resolve the selected server if its value has yet to be set.
         if(ConfigManager.getSelectedServer() == null || data.getServer(ConfigManager.getSelectedServer()) == null){
-            logger.log('Determining default selected server..')
+            logger.log('Determining default selected server...')
             ConfigManager.setSelectedServer(data.getMainServer().getID())
             ConfigManager.save()
         }
