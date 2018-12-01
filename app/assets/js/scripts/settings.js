@@ -1080,7 +1080,7 @@ function populateReleaseNotes(){
             }
 
         },
-        timeout: 20000
+        timeout: 5000
     }).catch(err => {
 	console.log(err)
         settingsAboutChangelogText.innerHTML='Failed to load release notes.'
