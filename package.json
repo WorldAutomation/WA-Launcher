@@ -1,6 +1,6 @@
 {
   "name": "wa-launcher",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "Custom modded launcher for WorldAutomation.Net",
   "productName": "WorldAutomation.Net",
   "main": "index.js",
@@ -25,7 +25,7 @@
     "type": "git",
     "url": "git+https://github.com/worldautomation/wa-launcher.git"
   },
-  "authors": [
+  "author": [
     "Daniel Scalzi (https://github.com/dscalzi/)",
     "WorldAutomation.Net (https://www.worldautomation.net)"
   ],
@@ -41,6 +41,7 @@
     "ejs-electron": "^2.0.3",
     "electron-updater": "^4.0.4",
     "fs": "0.0.1-security",
+    "fs-extra": "^7.0.1",
     "github-syntax-dark": "^0.5.0",
     "jquery": "^3.3.1",
     "jsonfile": "^5.0.0",
