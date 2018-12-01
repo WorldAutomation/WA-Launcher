@@ -49,7 +49,7 @@ if(!isDev){
                 loggerAutoUpdaterSuccess.log('New update available', info.version)
                 
                 if(process.platform === 'darwin'){
-                    info.darwindownload = `https://cdn.worldautomation.net/dist/WorldAutomation-${info.version}.dmg`
+                    info.darwindownload = `http://cdn.worldautomation.net/dist/WorldAutomation-${info.version}.dmg`
                     showUpdateUI(info)
                 }
                 

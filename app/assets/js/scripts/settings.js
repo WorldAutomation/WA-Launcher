@@ -442,8 +442,8 @@ function resolveModsForUI(){
 
     const modStr = parseModulesForUI(distro.getServer(serv).getModules(), false, servConf.mods)
 
-    document.getElementById('settingsReqModsContent').innerHTML = modStr.reqMods
-    document.getElementById('settingsOptModsContent').innerHTML = modStr.optMods
+    //document.getElementById('settingsReqModsContent').innerHTML = modStr.reqMods
+    //document.getElementById('settingsReqModsContent').innerHTML = modStr.optMods
 }
 
 /**
